@@ -38,6 +38,24 @@ class Doublylist{
             tail=newnode;
         }
     }
+    void pop_front(){
+        Node *temp=head;
+        head=head->next;
+        if(!head){
+        head->prev=NULL;
+        temp->next=NULL;
+        delete temp;
+        }
+        }
+    void pop_back(){
+        Node *temp=tail;
+        tail=tail->prev;
+        if(!tail){
+        tail->next=NULL;
+        temp->prev=NULL;
+        delete temp;
+        }
+    }
     void display(){
         Node *temp=head;
         while (temp!=NULL)
@@ -54,5 +72,6 @@ int main(){
     l1.push_back(2);
     l1.push_back(3);
     l1.push_back(4);
+    l1.pop_front();
     l1.display();
 }
